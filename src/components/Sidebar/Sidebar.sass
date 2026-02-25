@@ -1,0 +1,104 @@
+$bg-sidebar: #1f1f23
+$text-gray: #949494
+$active-bg: #f8f4f0
+$active-text: #1f1f23
+$transition: 0.3s ease
+
+.sidebar
+    background-color: $bg-sidebar
+    height: 100vh
+    width: 280px
+    display: flex
+    flex-direction: column
+    transition: width $transition
+    overflow: hidden
+
+    // Modifiers for the Block
+    &.minimized
+        width: 88px
+
+        .sidebar__logo-text,
+        .sidebar__nav-label,
+        .sidebar__minimize-label
+            opacity: 0
+            visibility: hidden
+
+    // Elements
+    &__logo-container
+        padding: 40px 32px
+
+    &__logo-text
+        color: white
+        font-size: 24px
+        margin: 0
+        transition: opacity $transition
+
+    &__nav
+        flex: 1
+        padding: 0 16px 0 0
+        // Space for the active indicator
+        display: flex
+        flex-direction: column
+        gap: 4px
+
+    &__nav-item
+        display: flex
+        align-items: center
+        padding: 16px 32px
+        text-decoration: none
+        color: $text-gray
+        border-radius: 0 12px 12px 0
+        transition: all $transition
+
+        &:hover
+            color: white
+
+        // Element Modifier
+        &--active
+            background-color: $active-bg
+            color: $active-text
+            border-left: 4px solid #277c78
+            // That green stripe
+
+        .sidebar__nav-icon
+            fill: $active-text
+
+    &__nav-icon
+        width: 20px
+        height: 20px
+        flex-shrink: 0
+        fill: currentColor
+        transition: fill $transition
+
+    &__nav-label
+        margin-left: 20px
+        font-weight: 500
+        white-space: nowrap
+        transition: opacity $transition
+
+    &__minimize-btn
+        background: none
+        border: none
+        cursor: pointer
+        display: flex
+        align-items: center
+        padding: 32px
+        color: $text-gray
+        transition: color $transition
+
+        &:hover
+            color: white
+
+    &__minimize-icon
+        width: 20px
+        height: 20px
+        fill: currentColor
+        transition: transform $transition
+
+        &--collapsed
+            transform: rotate(180deg)
+
+    &__minimize-label
+        margin-left: 20px
+        transition: opacity $transition
+        white-space: nowrap
