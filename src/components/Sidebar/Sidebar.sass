@@ -13,6 +13,15 @@ $transition: 0.3s ease
     transition: width $transition
     overflow: hidden
 
+    @media (max-width: 1024px)
+        height: auto
+        width: 100%
+        flex-direction: row
+        position: fixed
+        bottom: 0
+        left: 0
+        z-index: 100
+
     // Modifiers for the Block
     &.minimized
         width: 88px
@@ -27,6 +36,9 @@ $transition: 0.3s ease
     &__logo-container
         padding: 40px 32px
 
+        @media (max-width: 1024px)
+            display: none
+
     &__logo-text
         color: white
         font-size: 24px
@@ -36,10 +48,15 @@ $transition: 0.3s ease
     &__nav
         flex: 1
         padding: 0 16px 0 0
-        // Space for the active indicator
         display: flex
         flex-direction: column
         gap: 4px
+
+        @media (max-width: 1024px)
+            flex-direction: row
+            padding: 0
+            width: 100%
+            justify-content: space-around
 
     &__nav-item
         display: flex
@@ -50,6 +67,17 @@ $transition: 0.3s ease
         border-radius: 0 12px 12px 0
         transition: all $transition
 
+        @media (max-width: 1024px)
+            flex-direction: column
+            border-radius: 12px 12px 0 0
+            border-left: none
+            border-top: 4px solid transparent
+            padding: 12px 16px
+            gap: 4px
+
+        @media (max-width: 768px)
+            padding: 16px 12px
+
         &:hover
             color: white
 
@@ -58,7 +86,10 @@ $transition: 0.3s ease
             background-color: $active-bg
             color: $active-text
             border-left: 4px solid #277c78
-            // That green stripe
+            
+            @media (max-width: 1024px)
+                border-left: none
+                border-top: 4px solid #277c78
 
         .sidebar__nav-icon
             fill: $active-text
@@ -76,6 +107,13 @@ $transition: 0.3s ease
         white-space: nowrap
         transition: opacity $transition
 
+        @media (max-width: 1024px)
+            margin-left: 0
+            font-size: 12px
+
+        @media (max-width: 768px)
+            display: none
+
     &__minimize-btn
         background: none
         border: none
@@ -85,6 +123,9 @@ $transition: 0.3s ease
         padding: 32px
         color: $text-gray
         transition: color $transition
+
+        @media (max-width: 1024px)
+            display: none
 
         &:hover
             color: white

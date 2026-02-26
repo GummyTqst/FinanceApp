@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
-// If you are using TanStack's file-based routing, 
-// the 'to' paths will be strictly checked against your route tree.
 
 // Icons
 import IconOverview from "../../assets/images/icon-nav-overview.svg";
